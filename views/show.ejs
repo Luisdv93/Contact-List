@@ -1,0 +1,45 @@
+<% include partials/header %>
+  <div class="container py-5 mt-5">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mx-auto">
+        <div class="card">
+
+          <img class="card-img-top" src="<%= contact.image %>" alt="Contact picture">
+
+          <div class="card-body">
+
+            <h4 class="card-title">
+              Name:
+              <%= contact.firstName + ' ' + contact.lastName %>
+            </h4>
+
+            <p class="card-text">
+              Email:
+              <%= contact.email %>
+            </p>
+
+            <p class="card-text">
+              Creation Date:
+              <%= contact.created.toDateString() %>
+            </p>
+
+            <a href="/contacts/<%= contact._id %>/edit" class="btn btn-warning d-lg-inline-block mr-2">
+              <i class="fas fa-edit"></i>
+              Edit
+            </a>
+
+            <form action="/contacts/<%= contact._id %>?_method=DELETE" method="POST" class="d-lg-inline-block">
+              <button class="btn btn-danger">
+                <i class="fas fa-trash"></i>
+                Delete
+              </button>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <% include partials/footer %>
